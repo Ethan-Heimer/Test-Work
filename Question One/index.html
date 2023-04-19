@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="display">Enter a phone number</p>
+
+    <from>
+        <input type="tel" id="phoneNumber" placeholder="(nnn)-nnn-nnnn">
+        <input type="submit" id="submit">
+    </from>
+    <script>
+        const phoneInput = document.getElementById("phoneNumber");
+        const submit = document.getElementById("submit");
+        const display = document.getElementById("display");
+
+        submit.addEventListener("click", checkOption);
+
+        function checkOption(e){
+            e.preventDefault();
+            var match = phoneInput.value.match(/([0-9]{3}-){2}[0-9]{4}/g);
+            display.textContent = match != null ? "Valid" : "Invalid";
+        }
+    </script>
+</body>
+</html>
